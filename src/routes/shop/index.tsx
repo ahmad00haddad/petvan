@@ -179,11 +179,12 @@ function Shop() {
               >
                 {p.name}
               </h3>
-              <p className="mt-1 min-h-[2rem] flex-grow overflow-hidden text-xs leading-4 text-muted-foreground line-clamp-2">
+              <p className="mt-1 h-8 overflow-hidden text-xs leading-4 text-muted-foreground line-clamp-2">
                 {p.description}
               </p>
 
-              <div className="mt-4 flex items-center justify-between">
+
+              <div className="mt-auto pt-4 flex items-center justify-between">
                 <span className="font-display text-lg font-bold">{p.price.toFixed(2)} JOD</span>
                 <button
                   onClick={() => {

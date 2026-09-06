@@ -11,6 +11,9 @@ export function RevealOnScroll({ children, className = "", delay = 0 }: RevealPr
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Safety net: never leave content invisible if the observer never fires.
+    const fallback = setTimeout(() => setIsVisible(true), 1200 + delay);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -20,15 +23,16 @@ export function RevealOnScroll({ children, className = "", delay = 0 }: RevealPr
           observer.unobserve(entry.target);
         }
       },
-      {
-        threshold: 0.1,
-        rootMargin: "50px",
-      },
+      { threshold: 0, rootMargin: "200px" },
     );
 
     if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(fallback);
+      observer.disconnect();
+    };
   }, [delay]);
+
 
   return (
     <div

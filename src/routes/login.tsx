@@ -38,9 +38,10 @@ function Login() {
   };
 
   return (
-    <div className="flex min-h-screen w-full bg-background animate-fade-in-up">
+    <div className="mx-auto flex w-full max-w-6xl min-h-[calc(100vh-6rem)] lg:h-[min(calc(100vh-8rem),820px)] lg:min-h-[620px] items-stretch gap-0 overflow-hidden rounded-none bg-background px-0 py-0 lg:my-10 lg:rounded-[2rem] lg:border lg:border-border animate-fade-in-up">
       {/* Left Panel - Image */}
-      <div className="hidden lg:flex w-1/2 relative bg-secondary flex-col justify-between p-12 overflow-hidden">
+      <div className="hidden lg:flex w-1/2 relative bg-secondary flex-col justify-between p-10 overflow-hidden">
+
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
         <img
           src={heroDog}
@@ -63,7 +64,7 @@ function Login() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-5 sm:p-8 relative">
         <Link
           to="/"
-          className="absolute top-6 left-6 lg:left-auto lg:right-6 flex items-center gap-2 text-muted-foreground hover:text-foreground font-bold transition-transform hover:-translate-x-1"
+          className="absolute top-6 start-6 lg:start-auto lg:end-6 flex items-center gap-2 text-muted-foreground hover:text-foreground font-bold transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="size-5" />
           {t.goBackHome}
@@ -95,7 +96,7 @@ function Login() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-9 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute end-3 top-9 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
                 </button>
