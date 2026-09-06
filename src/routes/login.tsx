@@ -64,7 +64,7 @@ function Login() {
       <div className="w-full lg:w-1/2 flex items-center justify-center p-5 sm:p-8 relative">
         <Link
           to="/"
-          className="absolute top-6 left-6 lg:left-auto lg:right-6 flex items-center gap-2 text-muted-foreground hover:text-foreground font-bold transition-transform hover:-translate-x-1"
+          className="absolute top-6 start-6 lg:start-auto lg:end-6 flex items-center gap-2 text-muted-foreground hover:text-foreground font-bold transition-opacity hover:opacity-80"
         >
           <ArrowLeft className="size-5" />
           {t.goBackHome}
