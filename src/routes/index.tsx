@@ -195,7 +195,7 @@ function Index() {
     if (globalPetType === "Birds") return lang === "ar" ? "تغريد وفرح! 🦜" : "Tweet Tweet! 🦜";
     if (globalPetType === "Fish") return lang === "ar" ? "عالم تحت الماء! 🐟" : "Glub Glub! 🐟";
     return `${t.hello} ${t.friend}`;
-  }, [globalPetType]);
+  }, [globalPetType, lang, t.hello, t.friend]);
 
   return (
     <div
