@@ -149,8 +149,6 @@ function TypewriterText({ text }: { text: string }) {
       <span className="ms-1 inline-block h-[0.9em] w-[3px] translate-y-[0.1em] bg-primary align-middle animate-pulse" />
     </span>
   );
-
-
 }
 
 function Logo() {
@@ -177,9 +175,6 @@ function Index() {
   useEffect(() => {
     getProductsFn().then(setDbProducts);
   }, []);
-
-
-
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

@@ -177,7 +177,6 @@ function RootComponent() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   // Phase 1: Lenis Smooth Scroll & Battery Saver
   useEffect(() => {
     let lenis: Lenis | null = null;
@@ -324,19 +323,39 @@ function RootComponent() {
 
         {menuOpen && (
           <nav className="mx-auto mt-3 grid max-w-7xl gap-1 rounded-2xl border border-border bg-card p-3 text-sm font-bold uppercase tracking-wider lg:hidden">
-            <a className="rounded-xl px-3 py-2 hover:text-primary" href="/#about" onClick={() => setMenuOpen(false)}>
+            <a
+              className="rounded-xl px-3 py-2 hover:text-primary"
+              href="/#about"
+              onClick={() => setMenuOpen(false)}
+            >
               {t.nav.about}
             </a>
-            <a className="rounded-xl px-3 py-2 hover:text-primary" href="/#services" onClick={() => setMenuOpen(false)}>
+            <a
+              className="rounded-xl px-3 py-2 hover:text-primary"
+              href="/#services"
+              onClick={() => setMenuOpen(false)}
+            >
               {t.nav.services}
             </a>
-            <a className="rounded-xl px-3 py-2 hover:text-primary" href="/#help" onClick={() => setMenuOpen(false)}>
+            <a
+              className="rounded-xl px-3 py-2 hover:text-primary"
+              href="/#help"
+              onClick={() => setMenuOpen(false)}
+            >
               {t.nav.help}
             </a>
-            <Link to="/shop" className="rounded-xl px-3 py-2 hover:text-primary" onClick={() => setMenuOpen(false)}>
+            <Link
+              to="/shop"
+              className="rounded-xl px-3 py-2 hover:text-primary"
+              onClick={() => setMenuOpen(false)}
+            >
               {t.shop}
             </Link>
-            <Link to="/adopt" className="rounded-xl px-3 py-2 hover:text-primary" onClick={() => setMenuOpen(false)}>
+            <Link
+              to="/adopt"
+              className="rounded-xl px-3 py-2 hover:text-primary"
+              onClick={() => setMenuOpen(false)}
+            >
               {t.adopt}
             </Link>
             <Link
@@ -357,7 +376,6 @@ function RootComponent() {
           </nav>
         )}
       </header>
-
 
       <main className="min-h-screen animate-fade-in-up">
         <Preloader />
@@ -392,11 +410,9 @@ function RootComponent() {
         <MessageCircle className="size-6 shrink-0" />
       </a>
 
-
       {/* Global Footer */}
       <footer id="about" className="border-t border-border/60 bg-background px-5 py-16 mt-20">
         <div className="mx-auto grid max-w-6xl gap-12 text-center sm:grid-cols-2 lg:grid-cols-4">
-
           <div>
             <h2 className="font-display font-bold text-lg mb-4 text-foreground">{t.aboutUs}</h2>
             <p className="text-xs leading-relaxed text-muted-foreground max-w-[250px] mx-auto">
