@@ -184,7 +184,7 @@ function Shop() {
               </p>
 
 
-              <div className="mt-4 flex items-center justify-between">
+              <div className="mt-auto pt-4 flex items-center justify-between">
                 <span className="font-display text-lg font-bold">{p.price.toFixed(2)} JOD</span>
                 <button
                   onClick={() => {
