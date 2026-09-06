@@ -38,9 +38,10 @@ function Login() {
   };
 
   return (
-    <div className="flex min-h-screen w-full bg-background animate-fade-in-up">
+    <div className="mx-auto flex w-full max-w-6xl min-h-[calc(100vh-6rem)] lg:h-[min(calc(100vh-8rem),820px)] lg:min-h-[620px] items-stretch gap-0 overflow-hidden rounded-none bg-background px-0 py-0 lg:my-10 lg:rounded-[2rem] lg:border lg:border-border animate-fade-in-up">
       {/* Left Panel - Image */}
-      <div className="hidden lg:flex w-1/2 relative bg-secondary flex-col justify-between p-12 overflow-hidden">
+      <div className="hidden lg:flex w-1/2 relative bg-secondary flex-col justify-between p-10 overflow-hidden">
+
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
         <img
           src={heroDog}
