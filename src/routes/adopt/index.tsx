@@ -165,11 +165,11 @@ function Adopt() {
               key={listing.id}
               className="group flex h-full flex-col rounded-3xl border border-border glass-panel overflow-hidden shadow-[var(--shadow-card)] transition-all hover:-translate-y-2 hover:glow-primary"
             >
-
               <div
-                className="aspect-[4/3] bg-secondary relative cursor-pointer"
+                className="relative h-56 w-full shrink-0 overflow-hidden bg-secondary cursor-pointer"
                 onDoubleClick={() => handleDoubleTap(listing.id)}
               >
+
                 {heartAnim === listing.id && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                     <Heart className="size-24 text-red-500 fill-red-500 animate-[ping_1s_ease-out_forwards]" />
