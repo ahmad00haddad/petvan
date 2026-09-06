@@ -144,11 +144,12 @@ function TypewriterText({ text }: { text: string }) {
   }, [text]);
 
   return (
-    <span className="relative inline text-gold">
+    <span className="relative inline-block align-top text-gold">
       {displayedText}
       <span className="ms-1 inline-block h-[0.9em] w-[3px] translate-y-[0.1em] bg-primary align-middle animate-pulse" />
     </span>
   );
+
 
 }
 
