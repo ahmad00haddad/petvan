@@ -169,7 +169,6 @@ function Adopt() {
                 className="relative h-56 w-full shrink-0 overflow-hidden bg-secondary cursor-pointer"
                 onDoubleClick={() => handleDoubleTap(listing.id)}
               >
-
                 {heartAnim === listing.id && (
                   <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
                     <Heart className="size-24 text-red-500 fill-red-500 animate-[ping_1s_ease-out_forwards]" />
@@ -209,7 +208,6 @@ function Adopt() {
                   {listing.description}
                 </p>
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-border pt-4">
-
                   <div className="flex items-center gap-2">
                     <div className="size-8 rounded-full bg-secondary flex items-center justify-center font-bold text-xs">
                       {listing.lister.name.charAt(0)}

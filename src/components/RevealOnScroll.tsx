@@ -33,7 +33,6 @@ export function RevealOnScroll({ children, className = "", delay = 0 }: RevealPr
     };
   }, [delay]);
 
-
   return (
     <div
       ref={ref}

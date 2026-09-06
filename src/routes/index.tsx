@@ -149,8 +149,6 @@ function TypewriterText({ text }: { text: string }) {
       <span className="ms-1 inline-block h-[0.9em] w-[3px] translate-y-[0.1em] bg-primary align-middle animate-pulse" />
     </span>
   );
-
-
 }
 
 function Logo() {
@@ -178,9 +176,6 @@ function Index() {
     getProductsFn().then(setDbProducts);
   }, []);
 
-
-
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
@@ -200,7 +195,7 @@ function Index() {
     if (globalPetType === "Birds") return lang === "ar" ? "تغريد وفرح! 🦜" : "Tweet Tweet! 🦜";
     if (globalPetType === "Fish") return lang === "ar" ? "عالم تحت الماء! 🐟" : "Glub Glub! 🐟";
     return `${t.hello} ${t.friend}`;
-  }, [globalPetType]);
+  }, [globalPetType, lang, t.hello, t.friend]);
 
   return (
     <div
