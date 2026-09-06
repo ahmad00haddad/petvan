@@ -247,7 +247,7 @@ function Index() {
           className="order-1 lg:order-2 lg:ps-16 relative z-10 text-center lg:text-start flex flex-col items-center lg:items-start animate-fade-in-up"
           style={{ animationDelay: "100ms" }}
         >
-          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.25] tracking-tight break-words py-2 min-h-[3.5em] sm:min-h-[2.5em]">
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.25] tracking-tight break-words py-2 min-h-[2.6em] sm:min-h-[2.4em] lg:min-h-[2em]">
             <TypewriterText text={heroText} />
           </h1>
 
