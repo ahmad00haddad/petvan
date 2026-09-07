@@ -45,7 +45,7 @@ function Tracking() {
       }
       setLoading(false);
     });
-  }, [orderId]);
+  }, [orderId, lang]);
 
   if (loading && !order)
     return (

@@ -177,7 +177,6 @@ function RootComponent() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-
   // Micro-interaction: Smart Page Title
   useEffect(() => {
     const originalTitle = document.title || "PetVan";
@@ -342,7 +341,7 @@ function RootComponent() {
       <main className="min-h-screen animate-fade-in-up">
         <Preloader />
         <ScrollProgress />
-        
+
         <GrainOverlay />
         <Outlet />
         <GuidedTour />
