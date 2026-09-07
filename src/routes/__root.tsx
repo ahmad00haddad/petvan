@@ -8,7 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import Lenis from "@studio-freight/lenis";
+
 import { MessageCircle } from "lucide-react";
 import { Magnetic } from "../components/Magnetic";
 import { Toaster } from "sonner";
@@ -19,7 +19,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { useAppStore } from "../lib/store";
 import { copy } from "../lib/i18n";
 import { GuidedTour } from "../components/GuidedTour";
-import { CustomCursor } from "../components/CustomCursor";
+
 import { Preloader } from "../components/Preloader";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { GrainOverlay } from "../components/GrainOverlay";
@@ -177,44 +177,6 @@ function RootComponent() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Phase 1: Lenis Smooth Scroll & Battery Saver
-  useEffect(() => {
-    let lenis: Lenis | null = null;
-
-    // Battery saver check
-    let useSmooth = true;
-    if ("getBattery" in navigator) {
-      (navigator as any)
-        .getBattery()
-        .then((battery: any) => {
-          if (battery.level < 0.2 && !battery.charging) {
-            useSmooth = false; // Disable heavy animations on low battery
-            document.body.classList.add("low-battery");
-          } else {
-            initLenis();
-          }
-        })
-        .catch(() => initLenis());
-    } else {
-      initLenis();
-    }
-
-    function initLenis() {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-      function raf(time: number) {
-        lenis?.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    }
-
-    return () => {
-      if (lenis) lenis.destroy();
-    };
-  }, []);
 
   // Micro-interaction: Smart Page Title
   useEffect(() => {
@@ -380,7 +342,7 @@ function RootComponent() {
       <main className="min-h-screen animate-fade-in-up">
         <Preloader />
         <ScrollProgress />
-        <CustomCursor />
+        
         <GrainOverlay />
         <Outlet />
         <GuidedTour />
