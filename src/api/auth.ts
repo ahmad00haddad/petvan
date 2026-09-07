@@ -11,7 +11,7 @@ export const registerUserFn = createServerFn({ method: "POST" })
     });
 
     if (existingUser) {
-      throw new Error("User already exists");
+      return { ok: false as const, error: "User already exists" };
     }
 
     const user = await prisma.user.create({
@@ -22,7 +22,7 @@ export const registerUserFn = createServerFn({ method: "POST" })
       },
     });
 
-    return user;
+    return { ok: true as const, user };
   });
 
 export const loginUserFn = createServerFn({ method: "POST" })
@@ -33,10 +33,10 @@ export const loginUserFn = createServerFn({ method: "POST" })
     });
 
     if (!user || user.password !== data.password) {
-      throw new Error("Invalid credentials");
+      return { ok: false as const, error: "Invalid email or password" };
     }
 
-    return user;
+    return { ok: true as const, user };
   });
 
 export const getUserFn = createServerFn({ method: "GET" })
