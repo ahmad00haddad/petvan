@@ -27,8 +27,12 @@ function Login() {
     setError("");
     setLoading(true);
     try {
-      const user = await loginUserFn({ data: { email, password } });
-      setUserId(user.id);
+      const res = await loginUserFn({ data: { email, password } });
+      if (!res.ok) {
+        setError(lang === "ar" ? "البريد الإلكتروني أو كلمة المرور غير صحيحة" : res.error);
+        return;
+      }
+      setUserId(res.user.id);
       navigate({ to: "/profile" });
     } catch (err: any) {
       setError(err.message || (lang === "ar" ? "فشل تسجيل الدخول" : "Login failed"));

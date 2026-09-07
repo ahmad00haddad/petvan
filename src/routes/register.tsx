@@ -51,8 +51,12 @@ function Register() {
     setError("");
     setLoading(true);
     try {
-      const user = await registerUserFn({ data: { name, email, password } });
-      setUserId(user.id);
+      const res = await registerUserFn({ data: { name, email, password } });
+      if (!res.ok) {
+        setError(lang === "ar" ? "هذا الحساب موجود مسبقاً" : res.error);
+        return;
+      }
+      setUserId(res.user.id);
       navigate({ to: "/profile" });
     } catch (err: any) {
       setError(err.message || lang === "ar" ? "فشل إنشاء الحساب" : "Registration failed");
