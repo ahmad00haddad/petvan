@@ -1,5 +1,6 @@
 import { Magnetic } from "../components/Magnetic";
 import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { useAppStore } from "../lib/store";
 import { copy } from "../lib/i18n";
@@ -21,21 +22,26 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const setUserId = useAppStore((state) => state.setUserId);
+  const loginUser = useServerFn(loginUserFn);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
     try {
-      const res = await loginUserFn({ data: { email, password } });
+      const res = await loginUser({ data: { email, password } });
       if (!res.ok) {
         setError(lang === "ar" ? "البريد الإلكتروني أو كلمة المرور غير صحيحة" : res.error);
         return;
       }
       setUserId(res.user.id);
       navigate({ to: "/profile" });
-    } catch (err: any) {
-      setError(err.message || (lang === "ar" ? "فشل تسجيل الدخول" : "Login failed"));
+    } catch {
+      setError(
+        lang === "ar"
+          ? "تعذر تسجيل الدخول الآن. يرجى المحاولة مرة أخرى."
+          : "Unable to sign in right now. Please try again.",
+      );
     } finally {
       setLoading(false);
     }

@@ -91,7 +91,7 @@ function Profile() {
         navigate({ to: "/login" });
         setLoading(false);
       });
-  }, [userId, navigate, setUserId]);
+  }, [userId, navigate, setUserId, lang]);
 
   const handleDeletePet = async (petId: string) => {
     try {
